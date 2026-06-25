@@ -1,4 +1,4 @@
-<img src="" width="150" alt="Foto de perfil" />
+<img src="https://avatars.githubusercontent.com/u/105956949?v=4" width="150" alt="Foto de perfil" />
 
 # Hola, soy Alfredo Camarena
 
