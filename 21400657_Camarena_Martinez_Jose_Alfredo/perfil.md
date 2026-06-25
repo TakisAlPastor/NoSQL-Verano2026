@@ -20,7 +20,7 @@
 
 ## Cómo contactarme
 - Correo: joalcamarenama@ittepic.edu.mx
-- GitHub: [@TakisAlPastor](https://github.com/yaairnaavaa)
+- GitHub: [@TakisAlPastor](https://github.com/TakisAlPastor)
 
 ## Recomedacion
 - La habitacion de Fermat
