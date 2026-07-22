@@ -8,17 +8,6 @@ const PORT = 3000;
 app.use(express.json());
 app.use(morgan("dev"));
 
-mongoose
-  .connect(
-    "mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/netflix",
-  )
-  .then(() => {
-    console.log("Conectado a la base de datos");
-  })
-  .catch((err) => {
-    console.log("Error al conectar a la base de datos", err);
-  });
-
 const serieSchema = new mongoose.Schema(
   {
     titulo: { type: String, required: true, trim: true },
@@ -53,10 +42,6 @@ const peliculaSchema = new mongoose.Schema(
 );
 
 const pelicula = mongoose.model("Pelicula", peliculaSchema, "peliculas");
-
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
-});
 
 app.get("/", (req, res) => {
   res.send("API Netflix. Peliculas y series.");
@@ -327,3 +312,22 @@ app.delete("/peliculas/:id", async (req, res) => {
     });
   }
 });
+
+async function iniciarServidor() {
+  try {
+    await mongoose.connect(
+      "mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/netflix",
+    );
+
+    console.log("Conectado correctamente a MongoDB");
+
+    app.listen(PORT, () => {
+      console.log("Servidor iniciado en http://localhost:" + PORT);
+    });
+  } catch (error) {
+    console.error("No se pudo conectar con MongoDB");
+    console.error(error.message);
+  }
+}
+
+iniciarServidor();
