@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+
 const PORT = 3000;
 
 app.use(express.json());
